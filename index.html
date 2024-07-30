@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabalho de Machine Learning - Problemas de Classificação</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h1>Trabalho de Machine Learning</h1>
+    <h2>Problemas de Classificação</h2>
+    <h4>Projeto Titanic - Kaggle</h4>
+    <div class="low-container">
+        <img id="top-gif" src="img/ijchtiv1kj5b1.gif" alt="Imagem do Topo">
+    </div>
+    <h3 class="left-align">Relatório Técnico - Técnicas Implementadas</h3>
+
+    <div class="filter-container">
+        <select id="technique-select" onchange="filterTable()">
+            <option value="">Filtrar Técnicas</option>
+            <option value="">Mostrar Tudo</option>
+            <option value="Regressão Linear">Regressão Linear</option>
+            <option value="SVC">SVC</option>
+            <option value="Random Forest">Random Forest</option>
+            <option value="Decision Tree">Decision Tree</option>
+            <option value="K-Nearest Neighbors">K-Nearest Neighbors</option>
+            <option value="Naive Bayes">Naive Bayes</option>
+            <option value="XGBoost">XGBoost</option>
+        </select>
+        <button onclick="exportTableToExcel('data-table', 'Relatório_Técnico')">Exportar</button>
+    </div>
+
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th colspan="6">Treino</th>
+                <th colspan="1">Teste</th>
+            </tr>
+            <tr>
+                <th>Técnicas</th>
+                <th>Acurácia</th>
+                <th>Precisão</th>
+                <th>Recall</th>
+                <th>Especificidade</th>
+                <th>F1-score</th>
+                <th>Kaggle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Regressão Linear</td>
+                <td>0,7991</td>
+                <td>0,7637</td>
+                <td>0,6900</td>
+                <td>0,7250</td>
+                <td>0,8670</td>
+                <td>0,7655</td>
+            </tr>
+            <tr>
+                <td>SVC</td>
+                <td>0,8451</td>
+                <td>0,8469</td>
+                <td>0,7280</td>
+                <td>0,7830</td>
+                <td>0,9180</td>
+                <td>0,7846</td>
+            </tr>
+            <tr class="highlight">
+                <td>Random Forest</td>
+                <td>0,9494</td>
+                <td>0,9837</td>
+                <td>0,8830</td>
+                <td>0,9306</td>
+                <td>0,9908</td>
+                <td>0,9019</td>
+            </tr>
+            <tr>
+                <td>Decision Tree</td>
+                <td>0,8709</td>
+                <td>0,9250</td>
+                <td>0,7222</td>
+                <td>0,8111</td>
+                <td>0,9635</td>
+                <td>0,6889</td>
+            </tr>
+            <tr>
+                <td>K-Nearest Neighbors</td>
+                <td>0,8462</td>
+                <td>0,8782</td>
+                <td>0,6959</td>
+                <td>0,7765</td>
+                <td>0,9398</td>
+                <td>0,7631</td>
+            </tr>
+            <tr>
+                <td>Naive Bayes</td>
+                <td>0,7912</td>
+                <td>0,7280</td>
+                <td>0,7280</td>
+                <td>0,7280</td>
+                <td>0,8306</td>
+                <td>0,7488</td>
+            </tr>
+            <tr>
+                <td>XGBoost</td>
+                <td>0,7991</td>
+                <td>1.0</td>
+                <td>0,9912</td>
+                <td>0,9955</td>
+                <td>1.0</td>
+                <td>0,7775</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Ranking de Pontuação</h4>
+    <div class="photo-placeholder">
+        <img id="ranking-photo" src="img/ranking.jpeg" alt="Ranking de Pontuação">
+    </div>
+
+    <h3 class="left-align">Dados Variáveis</h3>
+
+    <div class="filter-container">
+        <select id="data-filter" onchange="filterData()">
+            <option value="">Filtrar Dados</option>
+            <option value="">Mostrar Todos</option>
+            <option value="Treino">Treino</option>
+            <option value="Teste">Teste</option>
+            <option value="Total">Total</option>
+        </select>
+        <button onclick="exportTableToExcel('data-variable-table', 'Dados_Variáveis')">Exportar</button>
+    </div>
+
+    <table id="data-variable-table">
+        <thead>
+            <tr>
+                <th colspan="2">Quantidade por Gênero</th>
+                <th colspan="3">Quantidade por Classe</th>
+                <th colspan="4">Quantidade por Idade</th>
+                <th colspan="3">Quantidade por Embarque</th>
+                <th colspan="2">Quantidade de Sobreviventes</th>
+            </tr>
+            <tr>
+                <th>Homens</th>
+                <th>Mulheres</th>
+                <th>1º Classe</th>
+                <th>2º Classe</th>
+                <th>3º Classe</th>
+                <th>Não Informado</th>
+                <th>1 a 30</th>
+                <th>31 a 60</th>
+                <th>61 a 92</th>
+                <th>Southampton</th>
+                <th>Cherbourg</th>
+                <th>Queenstown</th>
+                <th>Sobreviveu</th>
+                <th>Morreu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="data-treino">
+                <td>577</td>
+                <td>314</td>
+                <td>216</td>
+                <td>184</td>
+                <td>491</td>
+                <td>177</td>
+                <td>413</td>
+                <td>280</td>
+                <td>21</td>
+                <td>170</td>
+                <td>77</td>
+                <td>644</td>
+                <td>342</td>
+                <td>549</td>
+            </tr>
+            <tr class="data-teste">
+                <td>266</td>
+                <td>152</td>
+                <td>107</td>
+                <td>93</td>
+                <td>218</td>
+                <td>86</td>
+                <td>199</td>
+                <td>121</td>
+                <td>12</td>
+                <td>270</td>
+                <td>102</td>
+                <td>46</td>
+                <td>153</td>
+                <td>265</td>
+            </tr>
+            <tr class="data-total">
+                <td>843</td>
+                <td>466</td>
+                <td>323</td>
+                <td>277</td>
+                <td>709</td>
+                <td>263</td>
+                <td>612</td>
+                <td>401</td>
+                <td>33</td>
+                <td>440</td>
+                <td>179</td>
+                <td>690</td>
+                <td>495</td>
+                <td>841</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="left-align">Porcentagem de Dados</h3>
+    <div class="data-tables">
+        <div class="data-section">
+            <h4>Por Classe</h4>
+            <table class="data-summary">
+                <thead>
+                    <tr>
+                        <th>Classe</th>
+                        <th>Homem</th>
+                        <th>%</th>
+                        <th>Mulher</th>
+                        <th>%</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1º Classe</td>
+                        <td>179</td>
+                        <td>55,24%</td>
+                        <td>144</td>
+                        <td>44,76%</td>
+                        <td>323</td>
+                    </tr>
+                    <tr>
+                        <td>2º Classe</td>
+                        <td>171</td>
+                        <td>61,73%</td>
+                        <td>106</td>
+                        <td>38,27%</td>
+                        <td>277</td>
+                    </tr>
+                    <tr>
+                        <td>3º Classe</td>
+                        <td>493</td>
+                        <td>69,53%</td>
+                        <td>216</td>
+                        <td>30,47%</td>
+                        <td>709</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="data-section">
+            <h4>Ponto de Embarque</h4>
+            <table class="data-summary">
+                <thead>
+                    <tr>
+                        <th>Ponto</th>
+                        <th>Homem</th>
+                        <th>%</th>
+                        <th>Mulher</th>
+                        <th>%</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cherbourg</td>
+                        <td>157</td>
+                        <td>58,15%</td>
+                        <td>113</td>
+                        <td>41,85%</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td>Queenstown</td>
+                        <td>63</td>
+                        <td>51,22%</td>
+                        <td>60</td>
+                        <td>48,78%</td>
+                        <td>123</td>
+                    </tr>
+                    <tr>
+                        <td>Southampton</td>
+                        <td>623</td>
+                        <td>68,16%</td>
+                        <td>291</td>
+                        <td>31,84%</td>
+                        <td>914</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="data-section">
+            <h4>Sobreviventes e Mortos</h4>
+            <table class="data-summary">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Homem</th>
+                        <th>%</th>
+                        <th>Mulher</th>
+                        <th>%</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sobreviventes</td>
+                        <td>110</td>
+                        <td>22,22%</td>
+                        <td>385</td>
+                        <td>77,78%</td>
+                        <td>495</td>
+                    </tr>
+                    <tr>
+                        <td>Mortos</td>
+                        <td>733</td>
+                        <td>90,05%</td>
+                        <td>81</td>
+                        <td>9,95%</td>
+                        <td>814</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h3 class="left-align">Valor Total Tarifas</h3>
+    <table id="tariffs-table">
+        <thead>
+            <tr>
+                <th>Tarifa</th>
+                <th>Dollar</th>
+                <th>Real</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Teste</td>
+                <td>U$ 1.485.653.076</td>
+                <td>R$ 7.428.265.380</td>
+            </tr>
+            <tr>
+                <td>Treino</td>
+                <td>U$ 286.939.493</td>
+                <td>R$ 1.434.697.465</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>U$ 1.772.592.569</td>
+                <td>R$ 8.862.962.845</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 class="left-align">Conclusão</h3>
+    <p>Os dados são o novo petróleo, e o machine learning é a refinaria.</p>
+    <div class="export-container">
+        <button onclick="exportData()">Base de Dados</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

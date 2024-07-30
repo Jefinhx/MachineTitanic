@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: #1C1D21;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+h1, h2 {
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+h2 {
+    margin-top: 10px;
+    color: white;
+}
+
+h3 {
+    color: white;
+    font-size: 20px;
+}
+
+h4 {
+    color: white;
+    font-size: 20px;
+    text-align: left;
+}
+
+
+.left-align {
+    text-align: left;
+    margin-top: 20px;
+}
+
+
+.filter-container {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.filter-container select {
+    width: 158px;
+    padding: 5px;
+    font-size: 14px;
+    display: inline-block;
+    color: white;
+    background-color: #444;
+}
+
+.filter-container button {
+    margin-left: 1260px; 
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-container button:hover {
+    background-color: rgb(2, 60, 2);
+}
+
+.export-container button{
+    font-size: 14px;
+    width: 250px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+}
+
+.export-container button:hover {
+    background-color: rgb(2, 60, 2);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 1px solid white;
+}
+
+table th, table td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #333;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #2c2c2c;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #1c1c1c;
+}
+
+table .highlight {
+    background-color: #444;
+    color: red;
+}
+
+
+.photo-placeholder {
+    display: flex;
+    justify-content: left;
+    margin: 20px 0;
+}
+
+#ranking-photo {
+    max-width: 100%;
+    height: auto;
+}
+
+
+#data-variable-table th, #data-variable-table td {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid white;
+}
+
+#data-variable-table th {
+    background-color: #333;
+}
+
+.low-container {
+    display: flex;
+    justify-content: left;
+}
+
+
+#top-gif {
+    height: 300px; 
+    width: 1500px;
+}
+
+.data-total {
+    color: red;
+}
